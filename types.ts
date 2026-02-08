@@ -6,7 +6,7 @@ export interface Language {
 }
 
 export type TranslationStyle = 'formal' | 'casual';
-export type AppView = 'coach' | 'quiz';
+export type AppView = 'coach' | 'quiz' | 'matching';
 
 export interface TranslationResult {
   originalText: string;
@@ -30,6 +30,12 @@ export interface ChatSession {
   id: string;
   title: string;
   lastTimestamp: number;
+}
+
+export interface VocabularyPair {
+  id: number;
+  indonesian: string;
+  english: string;
 }
 
 export interface QuizQuestion {

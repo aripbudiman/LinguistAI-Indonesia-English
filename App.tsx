@@ -6,6 +6,7 @@ import { saveMessageToFirebase, getChatHistory, getAllSessions, saveSessionMetad
 import StyleSelector from './components/StyleSelector';
 import ChatBubble from './components/ChatBubble';
 import QuizView from './components/QuizView';
+import MatchingView from './components/MatchingView';
 
 const App: React.FC = () => {
   const [view, setView] = useState<AppView>('coach');
@@ -231,9 +232,15 @@ const App: React.FC = () => {
           >
             QUIZ MODE
           </button>
+          <button 
+            onClick={() => setView('matching')}
+            className={`flex-1 py-4 text-[10px] font-black tracking-widest transition-all ${view === 'matching' ? 'border-b-2 border-indigo-600 text-indigo-600' : 'text-gray-400 hover:bg-gray-50'}`}
+          >
+            VOCAB MATCH
+          </button>
         </div>
 
-        {view === 'coach' ? (
+        {view === 'coach' && (
           <>
             <StyleSelector selectedStyle={currentStyle} onSelect={setCurrentStyle} />
 
@@ -297,9 +304,10 @@ const App: React.FC = () => {
               </form>
             </footer>
           </>
-        ) : (
-          <QuizView />
         )}
+
+        {view === 'quiz' && <QuizView />}
+        {view === 'matching' && <MatchingView />}
       </div>
     </div>
   );
