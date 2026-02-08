@@ -26,6 +26,12 @@ export interface ChatMessage {
   timestamp: number;
 }
 
+export interface ChatSession {
+  id: string;
+  title: string;
+  lastTimestamp: number;
+}
+
 export interface QuizQuestion {
   id: number;
   question: string;
